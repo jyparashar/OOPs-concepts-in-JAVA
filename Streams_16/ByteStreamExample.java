@@ -8,12 +8,13 @@ public class ByteStreamExample
         FileOutputStream target = null;
         try
         {
-            source = new FileInputStream("source.txt");
-            target = new FileOutputStream("target.txt");
+            source = new FileInputStream("./src/source.txt");
+            target = new FileOutputStream("./src/target.txt");
 
             int temp;
             while ((temp = source.read())!= -1)
             {
+                System.out.println((char)temp);
                 target.write((byte)temp);
             }
         }
