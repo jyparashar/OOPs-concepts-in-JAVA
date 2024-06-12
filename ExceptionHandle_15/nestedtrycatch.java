@@ -1,35 +1,31 @@
 package ExceptionHandle_15;
 
-import java.io.*;
-
 public class nestedtrycatch {
-
-    public static void main(String[] args) throws Exception {
-        int age, cnt;
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
+    public static void main(String[] args) {
         try {
-            System.out.println("Enter your age:");
-            age = Integer.parseInt(br.readLine());
-            if (age < 18) {
-                throw new IOException("Not Eligible");
-            }
+            // Outer try block
+            System.out.println("Entering outer try block");
+            int[] numbers = {1, 2, 3, 4, 5};
+            int a = 10;
+            int b = 0;
+
+            // Nested try block
             try {
-                System.out.println("Enter count:");
-                cnt = Integer.parseInt(br.readLine());
-                if (cnt > 1) {
-                    throw new Exception("Cannot cast your vote");
-                }
-            } catch (Exception e) {
-                System.out.println(e.getMessage());
+                System.out.println("Entering nested try block");
+                System.out.println("Attempting to access element at index 5: " + numbers[5]);
+            } catch (ArrayIndexOutOfBoundsException e) {
+                System.out.println("Exception caught in nested try block: " + e);
             }
-        } catch (IOException e) {
 
-            System.out.println(e.getMessage());
-        } catch (Exception e) {
-
-            System.out.println(e.getMessage());
+            System.out.println("Attempting division by zero");
+            int result = a / b;
+            System.out.println("Result of division: " + result);
+        } catch (ArithmeticException e) {
+            System.out.println("Exception caught in outer try block: " + e);
+        } finally {
+            System.out.println("Finally block executed");
         }
 
+        System.out.println("Program execution finished");
     }
 }

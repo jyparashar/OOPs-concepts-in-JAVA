@@ -1,32 +1,15 @@
 package ExceptionHandle_15;
 
-import java.io.*;
-
 public class trycatch {
-
-    public static void main(String args[]) throws Exception {
-        int age;
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        try {
-            System.out.println("Enter Your Age:");
-            age = Integer.parseInt(br.readLine());
-
-            if (age < 18) {
-                throw new IOException();
-            } else {
-                throw new ArithmeticException();
+        public static void main(String args[]) {
+            try {
+                // Code that might throw an exception
+                int a = 10, b = 0;
+                int result = a / b; // Arithmetic exception
+                System.out.println("Result: " + result);
+            } catch (ArithmeticException e) {
+                // Code to handle the exception
+                System.out.println("Error: " + e.getMessage());
             }
-            //System.out.println("You can cast your Vote...");
-
-        } catch (IOException e) {
-            System.out.println("You are not eligible");
-
-        } catch (ArithmeticException e) {
-            System.out.println("You are eligible");
-
         }
-
-    }
-
 }
